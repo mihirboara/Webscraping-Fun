@@ -1,0 +1,9 @@
+Reddit API Info
+CLIENT_ID: 
+(Client ID)
+SECRET_KEY: 
+(Secret Key)
+USER:
+(Reddit Username)
+PWD:
+(Reddit Password)
