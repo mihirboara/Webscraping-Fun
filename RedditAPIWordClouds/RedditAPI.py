@@ -1,6 +1,8 @@
 import requests
+import numpy as np
 import matplotlib.pyplot as plt
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
+from PIL import Image
 
 # Reading Auth info from separate txt file
 with open('RedditAPIInfo.txt', 'r') as f:
@@ -37,15 +39,21 @@ if catChoice == 4:
 
 reddRequest = "https://oauth.reddit.com/r/" + subRedd + "/" + category
 
-# Request data from Reddit and create the wordcloud from the title texts
+# Request data from Reddit for the wordcloud
 res = requests.get(reddRequest, headers=headers)
 text = ""
 for post in res.json()['data']['children']:
     text = text + post['data']['title'] + " "
 
-wordcloud = WordCloud().generate(text)
+# Can add more stopwords to exclude from the wordclouds if needed
+stop_words = list(STOPWORDS) + ["having", "using", "used", "with"]
 
-# Display the generated image:
+# Create the wordcloud
+mask = np.array(Image.open("redditLogo.png"))
+wordcloud = WordCloud(mask=mask,contour_color='#ff4500',contour_width=3,
+                    colormap='autumn', collocations=False,stopwords=stop_words).generate(text)
+
+# Display the generated wordcloud image:
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis("off")
 plt.show()
