@@ -1,0 +1,19 @@
+Twitter API Info
+CLIENT ID:
+(Client ID)
+CLIENT SECRET:
+(Client Secret)
+CONSUMER KEY:
+(Consumer Key)
+CONSUMER SECRET:
+(Consumer Secret)
+BEARER TOKEN:
+(Bearer Token)
+ACCESS TOKEN:
+(Access Token)
+ACCESS TOKEN SECRET:
+(Access Token Secret)
+Username:
+(Twitter Username)
+Password:
+(Twitter Password)
